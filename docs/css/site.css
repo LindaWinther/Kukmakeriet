@@ -11,7 +11,7 @@
     --sans: "DM Sans", Arial, sans-serif;
     --header-bg: #fff;
     --section-bg: #fff;
-    --hero-pattern: url('/leobakgrund.png');
+    --hero-pattern: url('../images/leobakgrund.png');
     --hero-pattern-size: 470px;
     --pattern-opacity: 1;
     --hero-copy-bg: var(--clay);
@@ -28,7 +28,7 @@ html[data-theme="dark"] {
     --line: rgba(244, 238, 229, .2);
     --header-bg: #151514;
     --section-bg: #1d1c1a;
-    --hero-pattern: url('/leobakgrund.png');
+    --hero-pattern: url('../images/leobakgrund.png');
     --hero-copy-bg: #302723;
     --about-bg: #10100f;
     --footer-bg: #151514;
@@ -39,7 +39,7 @@ html[data-theme="card"] {
     --clay: #d99c8a;
     --clay-dark: #765245;
     --stone: #626469;
-    --hero-pattern: url('/snopparbakgrund.png');
+    --hero-pattern: url('../images/snopparbakgrund.png');
     --hero-pattern-size: 390px;
     --pattern-opacity: .62;
     --hero-copy-bg: #dfaa9a;
@@ -334,7 +334,7 @@ html[data-theme="card"] .round-link,
 html[data-theme="card"] .primary-button { background: #e99d8b; color: #171714; border: 2px solid #171714; }
 html[data-theme="card"] .about { background: #e99d8b; color: #171714; border-top: 3px solid #171714; border-bottom: 3px solid #171714; }
 html[data-theme="card"] .about .muted { color: rgba(23,23,20,.65); }
-html[data-theme="card"] .product-detail { padding: clamp(24px, 5vw, 70px); gap: 24px; background: url('/snopparbakgrund.png') center / 360px repeat; }
+html[data-theme="card"] .product-detail { padding: clamp(24px, 5vw, 70px); gap: 24px; background: url('../images/snopparbakgrund.png') center / 360px repeat; }
 html[data-theme="card"] .detail-image-panel,
 html[data-theme="card"] .detail-copy { border: 3px solid var(--ink); box-shadow: 10px 10px 0 var(--ink); }
 

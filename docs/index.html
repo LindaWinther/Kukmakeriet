@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Kukmakeriet – handgjord keramik med humor och personlighet.">
     <title>Kukmakeriet · Keramik med karaktär</title>
-    <link rel="stylesheet" th:href="@{/css/site.css}" href="/css/site.css">
+    <link rel="stylesheet" href="css/site.css">
     <script>document.documentElement.dataset.theme = localStorage.getItem('kukmakeriet-theme') || 'warm';</script>
 </head>
 <body>
@@ -19,9 +19,9 @@
     <span data-theme-description>Mjukt, redaktionellt och produktfokuserat</span>
 </div>
 <header class="site-header">
-    <a class="brand" th:href="@{/}" href="/" aria-label="Kukmakeriet, startsida">
-        <img class="brand-mark" th:src="@{/kukmakerietlogga.png}" src="/kukmakerietlogga.png" alt="">
-        <img class="brand-name" th:src="@{/kukmakeriettext.png}" src="/kukmakeriettext.png" alt="Kukmakeriet">
+    <a class="brand" href="./" aria-label="Kukmakeriet, startsida">
+        <img class="brand-mark" src="images/kukmakerietlogga.png" alt="">
+        <img class="brand-name" src="images/kukmakeriettext.png" alt="Kukmakeriet">
     </a>
     <nav aria-label="Huvudmeny">
         <a href="#keramik">Keramik</a>
@@ -53,34 +53,32 @@
         </div>
 
         <article class="featured-product">
-            <a class="product-image-wrap" th:href="@{/produkt}" href="/produkt">
-                <img class="product-image" th:src="@{/{image}(image=${product.image})}" src="/produktbild01.png"
-                     th:alt="${product.name}" alt="Mörk glaserad keramikskulptur">
+            <a class="product-image-wrap" href="produkt.html">
+                <img class="product-image" src="images/produktbild01.png" alt="Mörk glaserad keramikskulptur">
                 <span class="product-badge">Unik</span>
             </a>
             <div class="product-summary">
                 <p class="product-number">Objekt 001</p>
-                <h3 th:text="${product.name}">Skulptur No. 01</h3>
-                <p class="product-details" th:text="${product.details}">Stengods · blank glasyr · unikt exemplar</p>
+                <h3>Skulptur No. 01</h3>
+                <p class="product-details">Stengods · blank glasyr · unikt exemplar</p>
                 <div class="product-bottom">
-                    <p class="price" th:text="${product.price}">650 kr</p>
-                    <a class="round-link" th:href="@{/produkt}" href="/produkt" aria-label="Visa Skulptur No. 01">↗</a>
+                    <p class="price">650 kr</p>
+                    <a class="round-link" href="produkt.html" aria-label="Visa Skulptur No. 01">↗</a>
                 </div>
             </div>
         </article>
 
         <article class="featured-product second-product">
             <div class="product-image-wrap">
-                <img class="product-image" th:src="@{/{image}(image=${productTwo.image})}" src="/produktbild02.png"
-                     th:alt="${productTwo.name}" alt="Handgjord keramikskål med popcorn">
+                <img class="product-image" src="images/produktbild02.png" alt="Handgjord keramikskål med popcorn">
                 <span class="product-badge">Nytt</span>
             </div>
             <div class="product-summary">
                 <p class="product-number">Objekt 002</p>
-                <h3 th:text="${productTwo.name}">Skål No. 02</h3>
-                <p class="product-details" th:text="${productTwo.details}">Stengods · effektglasyr · unikt exemplar</p>
+                <h3>Skål No. 02</h3>
+                <p class="product-details">Stengods · effektglasyr · unikt exemplar</p>
                 <div class="product-bottom">
-                    <p class="price" th:text="${productTwo.price}">790 kr</p>
+                    <p class="price">790 kr</p>
                     <span class="prototype-chip">Visuellt exempel</span>
                 </div>
             </div>
@@ -100,7 +98,7 @@
 </main>
 
 <footer id="kontakt">
-    <img class="footer-mark" th:src="@{/kukmakerietlogga.png}" src="/kukmakerietlogga.png" alt="Kukmakeriets symbol">
+    <img class="footer-mark" src="images/kukmakerietlogga.png" alt="Kukmakeriets symbol">
     <div>
         <p class="eyebrow">Nyfiken på ett objekt?</p>
         <a href="mailto:kukmakeri1@gmail.com">kukmakeri1@gmail.com</a>
@@ -108,6 +106,6 @@
     </div>
     <p class="prototype-label">Visuell prototyp · 2026</p>
 </footer>
-<script th:src="@{/js/theme-switcher.js}" src="/js/theme-switcher.js"></script>
+<script src="js/theme-switcher.js"></script>
 </body>
 </html>

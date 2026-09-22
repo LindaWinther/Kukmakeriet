@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="sv" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Exempel på produktpresentation för Kukmakeriet.">
+    <title th:text="${product.name} + ' · Kukmakeriet'">Skulptur No. 01 · Kukmakeriet</title>
+    <link rel="stylesheet" th:href="@{/css/site.css}" href="/css/site.css">
+    <script>document.documentElement.dataset.theme = localStorage.getItem('kukmakeriet-theme') || 'warm';</script>
+</head>
+<body class="product-page">
+<div class="design-toolbar">
+    <label for="theme-select">Prova design</label>
+    <select id="theme-select" data-theme-select>
+        <option value="warm">Varm &amp; lekfull</option>
+        <option value="dark">Mörk &amp; dramatisk</option>
+        <option value="card">Visitkortsmönster</option>
+    </select>
+    <span>Endast för prototypen</span>
+</div>
+<header class="site-header">
+    <a class="brand" th:href="@{/}" href="/" aria-label="Kukmakeriet, startsida">
+        <img class="brand-mark" th:src="@{/kukmakerietlogga.png}" src="/kukmakerietlogga.png" alt="">
+        <img class="brand-name" th:src="@{/kukmakeriettext.png}" src="/kukmakeriettext.png" alt="Kukmakeriet">
+    </a>
+    <a class="back-link" th:href="@{/#keramik}" href="/#keramik">← Tillbaka till keramiken</a>
+</header>
+
+<main class="product-detail">
+    <div class="detail-image-panel">
+        <img th:src="@{/{image}(image=${product.image})}" src="/produktbild01.png"
+             th:alt="${product.name}" alt="Mörk glaserad keramikskulptur">
+        <span class="product-badge">Unik</span>
+    </div>
+    <div class="detail-copy">
+        <p class="eyebrow">Handgjort objekt · 001</p>
+        <h1 th:text="${product.name}">Skulptur No. 01</h1>
+        <p class="detail-price" th:text="${product.price}">650 kr</p>
+        <p class="detail-description" th:text="${product.description}">Ett handformat objekt i mörk, glaserad stengodslera.</p>
+
+        <dl class="facts">
+            <div><dt>Material</dt><dd>Stengods</dd></div>
+            <div><dt>Yta</dt><dd>Blank glasyr</dd></div>
+            <div><dt>Upplaga</dt><dd>1 exemplar</dd></div>
+        </dl>
+
+        <a class="primary-button" href="mailto:kukmakeri1@gmail.com?subject=Intresse%20för%20Skulptur%20No.%2001">Jag är intresserad <span aria-hidden="true">↗</span></a>
+        <p class="demo-note">Det här är en prototyp. Knappen öppnar ett mejl och genomför inget köp.</p>
+    </div>
+</main>
+
+<footer class="compact-footer">
+    <a href="https://www.instagram.com/kukmakeri1/" target="_blank" rel="noopener noreferrer">@kukmakeri1 på Instagram ↗</a>
+    <p class="prototype-label">Visuell prototyp · 2026</p>
+</footer>
+<script th:src="@{/js/theme-switcher.js}" src="/js/theme-switcher.js"></script>
+</body>
+</html>

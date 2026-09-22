@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="sv" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Kukmakeriet – handgjord keramik med humor och personlighet.">
+    <title>Kukmakeriet · Keramik med karaktär</title>
+    <link rel="stylesheet" th:href="@{/css/site.css}" href="/css/site.css">
+    <script>document.documentElement.dataset.theme = localStorage.getItem('kukmakeriet-theme') || 'warm';</script>
+</head>
+<body>
+<div class="design-toolbar">
+    <label for="theme-select">Prova design</label>
+    <select id="theme-select" data-theme-select>
+        <option value="warm">Varm &amp; lekfull</option>
+        <option value="dark">Mörk &amp; dramatisk</option>
+        <option value="card">Visitkortsmönster</option>
+    </select>
+    <span>Endast för prototypen</span>
+</div>
+<header class="site-header">
+    <a class="brand" th:href="@{/}" href="/" aria-label="Kukmakeriet, startsida">
+        <img class="brand-mark" th:src="@{/kukmakerietlogga.png}" src="/kukmakerietlogga.png" alt="">
+        <img class="brand-name" th:src="@{/kukmakeriettext.png}" src="/kukmakeriettext.png" alt="Kukmakeriet">
+    </a>
+    <nav aria-label="Huvudmeny">
+        <a href="#keramik">Keramik</a>
+        <a href="#om">Om</a>
+        <a href="#kontakt">Kontakt</a>
+        <a href="https://www.instagram.com/kukmakeri1/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+    </nav>
+</header>
+
+<main>
+    <section class="hero">
+        <div class="hero-pattern" aria-hidden="true"></div>
+        <div class="hero-copy">
+            <p class="eyebrow">Handgjort · småskaligt · lite fräckt</p>
+            <h1>Keramik som inte ber om ursäkt.</h1>
+            <p class="intro">Unika objekt, formade för hand och skapade för hem som tål lite personlighet.</p>
+            <a class="text-link" href="#keramik">Se senaste skapelsen <span aria-hidden="true">↓</span></a>
+        </div>
+        <p class="hero-stamp">Varje exemplar<br>är ett original</p>
+    </section>
+
+    <section class="collection" id="keramik" aria-labelledby="collection-title">
+        <div class="section-heading">
+            <div>
+                <p class="eyebrow">Utvalt objekt</p>
+                <h2 id="collection-title">Senast från verkstaden</h2>
+            </div>
+            <p class="section-note">Just nu provar vi oss fram.<br>Fler former kommer snart.</p>
+        </div>
+
+        <article class="featured-product">
+            <a class="product-image-wrap" th:href="@{/produkt}" href="/produkt">
+                <img class="product-image" th:src="@{/{image}(image=${product.image})}" src="/produktbild01.png"
+                     th:alt="${product.name}" alt="Mörk glaserad keramikskulptur">
+                <span class="product-badge">Unik</span>
+            </a>
+            <div class="product-summary">
+                <p class="product-number">Objekt 001</p>
+                <h3 th:text="${product.name}">Skulptur No. 01</h3>
+                <p class="product-details" th:text="${product.details}">Stengods · blank glasyr · unikt exemplar</p>
+                <div class="product-bottom">
+                    <p class="price" th:text="${product.price}">650 kr</p>
+                    <a class="round-link" th:href="@{/produkt}" href="/produkt" aria-label="Visa Skulptur No. 01">↗</a>
+                </div>
+            </div>
+        </article>
+    </section>
+
+    <section class="about" id="om">
+        <p class="eyebrow">Bakom leran</p>
+        <div class="about-grid">
+            <h2>Gjort för hand,<br>med glimten i ögat.</h2>
+            <div>
+                <p>Kukmakeriet är en liten keramikverkstad där varje föremål får vara precis så egenartat som det vill.</p>
+                <p class="muted">Den här texten är tillfällig och kan senare ersättas med berättelsen om skaparen, processen och inspirationen.</p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer id="kontakt">
+    <img class="footer-mark" th:src="@{/kukmakerietlogga.png}" src="/kukmakerietlogga.png" alt="Kukmakeriets symbol">
+    <div>
+        <p class="eyebrow">Nyfiken på ett objekt?</p>
+        <a href="mailto:kukmakeri1@gmail.com">kukmakeri1@gmail.com</a>
+        <a class="instagram-link" href="https://www.instagram.com/kukmakeri1/" target="_blank" rel="noopener noreferrer">@kukmakeri1 på Instagram ↗</a>
+    </div>
+    <p class="prototype-label">Visuell prototyp · 2026</p>
+</footer>
+<script th:src="@{/js/theme-switcher.js}" src="/js/theme-switcher.js"></script>
+</body>
+</html>

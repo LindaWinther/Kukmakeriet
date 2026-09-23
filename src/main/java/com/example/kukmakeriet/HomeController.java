@@ -38,6 +38,11 @@ public class HomeController {
         return "product";
     }
 
+    @GetMapping("/produkter")
+    public String products() {
+        return "products";
+    }
+
     public record Product(String name, String description, String price, String details, String image) {
     }
 }

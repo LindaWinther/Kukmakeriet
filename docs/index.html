@@ -5,29 +5,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Kukmakeriet – handgjord keramik med humor och personlighet.">
     <title>Kukmakeriet · Keramik med karaktär</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="css/site.css">
-    <script>document.documentElement.dataset.theme = localStorage.getItem('kukmakeriet-theme') || 'warm';</script>
+    <script>
+        const savedTheme = localStorage.getItem('kukmakeriet-theme');
+        const savedNav = localStorage.getItem('kukmakeriet-nav');
+        document.documentElement.dataset.theme = ['warm', 'card'].includes(savedTheme) ? savedTheme : 'warm';
+        document.documentElement.dataset.nav = ['classic', 'pill', 'drawer'].includes(savedNav) ? savedNav : 'classic';
+    </script>
 </head>
 <body>
 <div class="design-toolbar">
-    <label for="theme-select">Prova design</label>
-    <select id="theme-select" data-theme-select>
-        <option value="warm">A · Varm butik</option>
-        <option value="dark">B · Mörkt galleri</option>
-        <option value="card">C · Lekfullt visitkort</option>
-    </select>
+    <div class="prototype-control">
+        <label for="theme-select">Design</label>
+        <select id="theme-select" data-theme-select>
+            <option value="warm">A · Ljus butik</option>
+            <option value="card">B · Lekfullt mönster</option>
+        </select>
+    </div>
+    <div class="prototype-control">
+        <label for="nav-select">Meny</label>
+        <select id="nav-select" data-nav-select>
+            <option value="classic">1 · Klassisk</option>
+            <option value="pill">2 · Centrerad</option>
+            <option value="drawer">3 · Menyknapp</option>
+        </select>
+    </div>
     <span data-theme-description>Mjukt, redaktionellt och produktfokuserat</span>
 </div>
 <header class="site-header">
     <a class="brand" href="./" aria-label="Kukmakeriet, startsida">
-        <img class="brand-mark" src="images/kukmakerietlogga.png" alt="">
-        <img class="brand-name" src="images/kukmakeriettext.png" alt="Kukmakeriet">
+        <img class="brand-mark" src="images/Kukmakeriet_logo_fat.png" alt="">
+        <img class="brand-name" src="images/Kukmakeriet_fat.png" alt="Kukmakeriet">
     </a>
-    <nav aria-label="Huvudmeny">
-        <a href="#keramik">Keramik</a>
-        <a href="#om">Om</a>
-        <a href="#kontakt">Kontakt</a>
-        <a href="https://www.instagram.com/kukmakeri1/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" data-menu-toggle>
+        <span></span><span></span><span></span><span class="sr-only">Öppna meny</span>
+    </button>
+    <nav id="main-nav" aria-label="Huvudmeny">
+        <div class="shop-nav" data-shop-nav>
+            <button class="shop-trigger" type="button" aria-expanded="false" data-shop-toggle>Butik <span aria-hidden="true">⌄</span></button>
+            <div class="shop-menu">
+                <a class="shop-all" href="produkter.html">Alla produkter →</a>
+                <div class="shop-column">
+                    <a class="shop-heading" href="produkter.html?category=porslin">Porslin</a>
+                    <a href="produkter.html?category=koppar">Koppar</a>
+                    <a href="produkter.html?category=skalar">Skålar</a>
+                    <a href="produkter.html?category=fat">Fat</a>
+                </div>
+                <div class="shop-column">
+                    <a class="shop-heading" href="produkter.html?category=snoppar">Snoppar</a>
+                    <a href="produkter.html?category=stora">Stora</a>
+                    <a href="produkter.html?category=sma">Små</a>
+                    <a href="produkter.html?category=special">Special</a>
+                </div>
+            </div>
+        </div>
+        <a href="#event">Event &amp; marknader</a>
+        <a href="#om">Om mig</a>
+        <span class="social-nav">
+            <a class="social-icon" href="https://www.instagram.com/kukmakeri1/" target="_blank" rel="noopener noreferrer" aria-label="Kukmakeriet på Instagram">
+                <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+            </a>
+            <a class="social-icon" href="https://www.tiktok.com/@kukmakeri1" target="_blank" rel="noopener noreferrer" aria-label="Kukmakeriet på TikTok">
+                <i class="fa-brands fa-tiktok" aria-hidden="true"></i>
+            </a>
+        </span>
     </nav>
 </header>
 
@@ -85,12 +127,25 @@
         </article>
     </section>
 
+    <section class="events" id="event">
+        <p class="eyebrow">På gång</p>
+        <div class="events-grid">
+            <h2>Vi ses ute<br>i verkligheten.</h2>
+            <div class="event-card">
+                <p class="event-date">Nästa datum kommer snart</p>
+                <h3>Marknader &amp; event</h3>
+                <p>Här kan kommande marknader, vernissager och andra tillfällen att klämma på keramiken få ta plats.</p>
+                <a href="https://www.instagram.com/kukmakeri1/" target="_blank" rel="noopener noreferrer">Följ uppdateringar på Instagram ↗</a>
+            </div>
+        </div>
+    </section>
+
     <section class="about" id="om">
         <p class="eyebrow">Bakom leran</p>
         <div class="about-grid">
             <h2>Smakfullt får gärna<br>vara lite fräckt.</h2>
             <div>
-                <p>Kukmakeriet är en värld där klassiska former möter idéer som inte riktigt kan hålla sig i skinnet. Allt formas för hand och får sin egen personlighet på vägen genom lera, glasyr och eld.</p>
+                <p>Kukmakeriet är en värld där klassiska former möter idéer som inte riktigt kan hålla sig i skinnet. Allt formas för hand och får sin egen personlighet på vägen genom lera, glasyr och bränning.</p>
                 <p class="muted">Ibland blir det djärvt. Ibland blir det något som balanserar upp det hela. Gemensamt är små upplagor, oväntade detaljer och föremål som känns helt egna.</p>
             </div>
         </div>
@@ -98,11 +153,18 @@
 </main>
 
 <footer id="kontakt">
-    <img class="footer-mark" src="images/kukmakerietlogga.png" alt="Kukmakeriets symbol">
+    <img class="footer-mark" src="images/Kukmakeriet_logo_fat.png" alt="Kukmakeriets symbol">
     <div>
         <p class="eyebrow">Nyfiken på ett objekt?</p>
         <a href="mailto:kukmakeri1@gmail.com">kukmakeri1@gmail.com</a>
-        <a class="instagram-link" href="https://www.instagram.com/kukmakeri1/" target="_blank" rel="noopener noreferrer">@kukmakeri1 på Instagram ↗</a>
+        <div class="social-links" aria-label="Kukmakeriet i sociala medier">
+            <a href="https://www.instagram.com/kukmakeri1/" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-instagram" aria-hidden="true"></i>Instagram
+            </a>
+            <a href="https://www.tiktok.com/@kukmakeri1" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-tiktok" aria-hidden="true"></i>TikTok
+            </a>
+        </div>
     </div>
     <p class="prototype-label">Visuell prototyp · 2026</p>
 </footer>

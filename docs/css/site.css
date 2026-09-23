@@ -11,7 +11,8 @@
     --sans: "DM Sans", Arial, sans-serif;
     --header-bg: #fff;
     --section-bg: #fff;
-    --hero-pattern: url('../images/leobakgrund.png');
+    /*!!!*/
+    --hero-pattern: url('../images/dickpattern.png');
     --hero-pattern-size: 470px;
     --pattern-opacity: 1;
     --hero-copy-bg: var(--clay);
@@ -423,9 +424,57 @@ html[data-nav="drawer"] #main-nav > a { width: 100%; padding-bottom: 12px; borde
         box-shadow: 8px 8px 0 rgba(23,23,20,.18);
         opacity: 0;
         visibility: hidden;
+        transition: opacity .2s ease, transform .2s ease, visibility .2s;
     }
     html.nav-open .site-header #main-nav { opacity: 1; visibility: visible; transform: translateY(0); }
+    html.nav-open .menu-toggle > span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    html.nav-open .menu-toggle > span:nth-child(2) { opacity: 0; }
+    html.nav-open .menu-toggle > span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
     .site-header { position: relative; z-index: 20; }
+
+    /* Behåll de tre menyalternativens olika uttryck även på små skärmar. */
+    html[data-nav="classic"] .menu-toggle {
+        width: 42px;
+        border: 0;
+    }
+    html[data-nav="classic"] .site-header #main-nav {
+        width: 100%;
+        top: 100%;
+        right: 0;
+        box-shadow: 0 10px 22px rgba(23,23,20,.12);
+    }
+
+    html[data-nav="pill"] .menu-toggle {
+        width: 46px;
+        height: 46px;
+        padding: 12px;
+        border-radius: 50%;
+        background: var(--paper);
+        box-shadow: 0 5px 16px rgba(23,23,20,.1);
+    }
+    html[data-nav="pill"] .site-header #main-nav {
+        width: calc(100vw - 48px);
+        right: 24px;
+        padding: 24px 28px;
+        border-radius: 24px;
+        box-shadow: 0 12px 30px rgba(23,23,20,.15);
+    }
+
+    html[data-nav="drawer"] .site-header #main-nav {
+        width: min(320px, calc(100vw - 32px));
+        min-height: calc(100vh - 110px);
+        right: 16px;
+        padding: 32px 28px;
+        box-shadow: -8px 10px 0 rgba(23,23,20,.18);
+        transform: translateX(24px);
+    }
+    html[data-nav="drawer"].nav-open .site-header #main-nav { transform: translateX(0); }
+
+    html[data-theme="card"][data-nav="pill"] .site-header #main-nav {
+        border: 2px solid var(--ink);
+        background: #fff8f3;
+        box-shadow: 6px 6px 0 var(--ink);
+    }
 }
 
 /* Köpmeny med två produktgrupper */

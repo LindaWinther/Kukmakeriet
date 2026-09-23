@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="sv" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Demokatalog med keramik från Kukmakeriet.">
+    <title>Produkter · Kukmakeriet</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" th:href="@{/css/site.css}" href="/css/site.css">
+    <script>
+        const savedTheme = localStorage.getItem('kukmakeriet-theme');
+        const savedNav = localStorage.getItem('kukmakeriet-nav');
+        document.documentElement.dataset.theme = ['warm', 'card'].includes(savedTheme) ? savedTheme : 'warm';
+        document.documentElement.dataset.nav = ['classic', 'pill', 'drawer'].includes(savedNav) ? savedNav : 'classic';
+    </script>
+</head>
+<body class="catalog-page">
+<div class="design-toolbar">
+    <div class="prototype-control"><label for="theme-select">Design</label><select id="theme-select" data-theme-select><option value="warm">A · Ljus butik</option><option value="card">B · Lekfullt mönster</option></select></div>
+    <div class="prototype-control"><label for="nav-select">Meny</label><select id="nav-select" data-nav-select><option value="classic">1 · Klassisk</option><option value="pill">2 · Centrerad</option><option value="drawer">3 · Menyknapp</option></select></div>
+    <span data-theme-description>Mjukt, redaktionellt och produktfokuserat</span>
+</div>
+<header class="site-header">
+    <a class="brand" th:href="@{/}" href="/" aria-label="Kukmakeriet, startsida"><img class="brand-mark" th:src="@{/Kukmakeriet_logo_fat.png}" src="/Kukmakeriet_logo_fat.png" alt=""><img class="brand-name" th:src="@{/Kukmakeriet_fat.png}" src="/Kukmakeriet_fat.png" alt="Kukmakeriet"></a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" data-menu-toggle><span></span><span></span><span></span><span class="sr-only">Öppna meny</span></button>
+    <nav id="main-nav" aria-label="Huvudmeny">
+        <div class="shop-nav" data-shop-nav>
+            <button class="shop-trigger" type="button" aria-expanded="false" data-shop-toggle>Butik <span aria-hidden="true">⌄</span></button>
+            <div class="shop-menu">
+                <a class="shop-all" th:href="@{/produkter}" href="/produkter">Alla produkter →</a>
+                <div class="shop-column"><a class="shop-heading" th:href="@{/produkter(category='porslin')}" href="/produkter?category=porslin">Porslin</a><a th:href="@{/produkter(category='koppar')}" href="/produkter?category=koppar">Koppar</a><a th:href="@{/produkter(category='skalar')}" href="/produkter?category=skalar">Skålar</a><a th:href="@{/produkter(category='fat')}" href="/produkter?category=fat">Fat</a></div>
+                <div class="shop-column"><a class="shop-heading" th:href="@{/produkter(category='snoppar')}" href="/produkter?category=snoppar">Snoppar</a><a th:href="@{/produkter(category='stora')}" href="/produkter?category=stora">Stora</a><a th:href="@{/produkter(category='sma')}" href="/produkter?category=sma">Små</a><a th:href="@{/produkter(category='special')}" href="/produkter?category=special">Special</a></div>
+            </div>
+        </div>
+        <a th:href="@{/#event}" href="/#event">Event &amp; marknader</a><a th:href="@{/#om}" href="/#om">Om mig</a>
+        <span class="social-nav"><a class="social-icon" href="https://www.instagram.com/kukmakeri1/" target="_blank" rel="noopener noreferrer" aria-label="Kukmakeriet på Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a><a class="social-icon" href="https://www.tiktok.com/@kukmakeri1" target="_blank" rel="noopener noreferrer" aria-label="Kukmakeriet på TikTok"><i class="fa-brands fa-tiktok" aria-hidden="true"></i></a></span>
+    </nav>
+</header>
+<main>
+    <section class="catalog-hero"><p class="eyebrow">Tillfällig demokatalog</p><h1>Alla former,<br>stora som små.</h1><p>Här visas 20 påhittade produkter för att prova katalog, kategorier och navigation. Innehållet är inte kopplat till lager eller databas ännu.</p></section>
+    <section class="catalog" aria-labelledby="catalog-title">
+        <div class="catalog-heading"><div><p class="eyebrow">Filtrera</p><h2 id="catalog-title" data-catalog-title>Alla produkter</h2></div><p><span data-product-count>20</span> demoprodukter</p></div>
+        <div class="filter-list" aria-label="Produktfilter" data-filter-list></div>
+        <div class="demo-notice"><strong>Prototyp:</strong> Namn, priser och lagersaldo är demodata. Redigera <code>js/demo-products.js</code> för att prova annat innehåll.</div>
+        <div class="catalog-grid" data-product-grid data-assets-base="" data-product-url="/produkt"></div>
+        <noscript>JavaScript behöver vara aktiverat för att visa demoprodukterna.</noscript>
+    </section>
+</main>
+<footer class="compact-footer"><p>Kukmakeriet · visuell prototyp</p><a href="mailto:kukmakeri1@gmail.com">kukmakeri1@gmail.com</a></footer>
+<script th:src="@{/js/theme-switcher.js}" src="/js/theme-switcher.js"></script>
+<script th:src="@{/js/demo-products.js}" src="/js/demo-products.js"></script>
+</body>
+</html>
